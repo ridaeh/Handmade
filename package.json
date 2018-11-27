@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon ./src/server/server.js",
-    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "client": "webpack-dev-server --mode development --devtool inline-source-map --history-api-fallback --hot",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
@@ -15,6 +15,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "babel-plugin-react-html-attrs": "^2.1.0",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^4.0.1",
     "css-loader": "^1.0.1",
@@ -32,6 +33,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "react": "^16.6.3",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "react-router-dom": "^4.3.1"
   }
 }
