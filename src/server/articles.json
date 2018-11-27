@@ -1,0 +1,6 @@
+{
+  "label": "artile 1",
+  "text":"The difference between these two, is that devDependencies are modules which are only required during development,
+  while dependencies are modules which are also required at runtime.",
+  "img":"./npm.png",
+}
