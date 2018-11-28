@@ -1,24 +1,33 @@
 
 var express = require('express');
 var app = express();
-var mongoose=require('mongoose');
+//var mongoose=require('mongoose');
 var articles=require('./MongoDB/dataSchema.js')
-//connect to mongoose
-mongoose.connect('mongodb://localhost/articles');
-//var db=mongoose.connection;
-app.get('/api/v1/article', function (req, res) {
-  console.log('Received request for beers from', req.ip)
-  //  res.json(p);
+//connrction to the database on ATLAS-mongodb
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://yahya:yahya@cluster0-shard-00-00-iky7n.mongodb.net:27017,"+
+"cluster0-shard-00-01-iky7n.mongodb.net:27017,"+
+"cluster0-shard-00-02-iky7n.mongodb.net:27017/articles?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true";
 
-  articles.find({},(err,article)=>{
-    if(err){
-      res.status(500).json({errmsg:err});
-    }  res.status(200).json({msg:article});
+//defining routes
+app.get('/api/v1/articles', function (req, res) {
+
+
+  MongoClient.connect(url,  function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("articles");
+    dbo.collection("articles").find({}).toArray(function(err, result) {
+      if (err) throw err;
+    //  console.log(result);     // here result contains the data of article label /price/img
+       res.json("hey");
+
+      db.close();
+    });
+
   });
 });
 
-//    var p =   require('./articles.json')   ;
-//    console.log("articles", p);
+//launching server
 var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;

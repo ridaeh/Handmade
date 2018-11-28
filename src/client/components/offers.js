@@ -18,6 +18,14 @@ export class Offers extends React.Component{
   }
   componentDidMount(){
     document.title = "Offers"
+    >console.log("FROM CLIENT HELLLLLLOOOOOOOOOOOO");
+    this.fetchData();
+  }
+  fetchData(){
+    fetch('http://localhost:3000/api/v1/articles')
+    .then(response=>response.json())
+    .then(parsedJSON=>console.log("FROM CLIENT",parsedJSON.res))
+    .catch(error=>console.log('parsing failed',error))
   }
   render(){
     const items=this.data.map((item,index) =>

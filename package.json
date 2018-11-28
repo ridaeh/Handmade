@@ -4,13 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "server": "nodemon ./src/server/server.js"
-=======
     "server": "nodemon ./src/server/server.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --history-api-fallback --hot",
     "dev": "concurrently \"npm run server\" \"npm run client\""
->>>>>>> 99137ec801cb46c4c482f51ce7c19001a9b477a6
   },
   "author": "",
   "license": "ISC",
@@ -36,13 +32,10 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-<<<<<<< HEAD
     "mongodb": "^3.1.10",
-    "mongoose": "^5.3.13"
-=======
+    "mongoose": "^5.3.13",
     "react": "^16.6.3",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1"
->>>>>>> 99137ec801cb46c4c482f51ce7c19001a9b477a6
   }
 }
