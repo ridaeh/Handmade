@@ -19,7 +19,7 @@ app.get('/api/v1/articles', function (req, res) {
     dbo.collection("articles").find({}).toArray(function(err, result) {
       if (err) throw err;
     //  console.log(result);     // here result contains the data of article label /price/img
-       res.json("hey");
+       res.json(result);
 
       db.close();
     });
