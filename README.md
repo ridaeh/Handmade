@@ -1,8 +1,7 @@
 # :hatching_chick: Handmade
 A full stack web application using MongoDB, Express,React and Node.js.
 
-# :arrow_forward: Quick Start
-
+## :arrow_forward: Quick Start
 ```
 # Clone the repository
 git clone https://github.com/YAHYAfz/Handmade.git
@@ -15,7 +14,6 @@ npm install
 
 # Start development server
 npm run dev
-
 ```
 ## :tophat: Author
 :woman_technologist: Fati YAHYA - [Github](https://github.com/YAHYAfz).
