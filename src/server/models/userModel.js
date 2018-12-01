@@ -1,6 +1,8 @@
 'use strict'
 
 var mongoose =require('mongoose');
+var bcrypt = require('bcrypt')
+
 var userSchema =  mongoose.Schema({
   fullName:{
     type:String,
@@ -19,5 +21,7 @@ var userSchema =  mongoose.Schema({
     required:true
   }
 });
-
+userSchema.methods.comparePassword=function (password){
+  return bcrypt.compareSync(password,this.hash_password)
+}
 module.exports=mongoose.model('User',userSchema);
