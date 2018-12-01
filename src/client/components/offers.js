@@ -13,7 +13,7 @@ export class Offers extends React.Component{
     this.fetchData()
   }
   fetchData(){
-    fetch('/api/v1/articles')
+    fetch('/api/v1/products')
     .then(response=> response.json())
     .then(parsedJSON=>{this.setState({data:parsedJSON})})
     .catch(error=>console.log('parsing failed',error))

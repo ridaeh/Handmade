@@ -1,11 +1,25 @@
-# handmade
+# :hatching_chick: Handmade
 
 ## MERN Stack
 
-This is a full stack web application using MengoDb, Express,React, Node.js .
+A full stack web application using MongoDB, Express,React and Node.js.
 
-# Documentation
+# :arrow_forward: Quick Start
 
-## Folder Structure
+```
+# Clone the repository
+git clone https://github.com/YAHYAfz/Handmade.git
 
-All the source code will be inside src directory. Inside src, there is client and server directory. All the frontend code (react, sass, js and any other assets) will be in client directory. Backend Node.js/Express code will be in the server directory.
+# Go inside the directory
+cd handmade
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+```
+## :tophat: Author
+:woman_technologist: Fati YAHYA - [Github](https://github.com/YAHYAfz).
+:man_technologist: Ridae Hamdani - [Github](https://github.com/ridaeh). :morocco: :fr:

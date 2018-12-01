@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import "../styles/navbar.sass"
 export class Navbar extends React.Component {
   render(){
@@ -11,10 +11,10 @@ export class Navbar extends React.Component {
         </h2>
       </div>
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/offers">Buy</Link></li>
-          <li><Link to="/sellers">Sell</Link></li>
-          <li><Link to="/login">Login</Link></li>
+          <li><NavLink exact to="/">Home</NavLink></li>
+          <li><NavLink to="/offers">Buy</NavLink></li>
+          <li><NavLink to="/sellers">Sell</NavLink></li>
+          <li><NavLink to="/login">Login</NavLink></li>
         </ul>
       </nav>
     );
