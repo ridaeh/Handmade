@@ -6,7 +6,7 @@ export class ArticleItem extends React.Component {
     super(props)
   }
   render() {
-    return (<article class="card">
+    return (<article class="card column is-one-quarter">
       <a href={"/article/" + this.props.id}>
 
         <div class="card-image">

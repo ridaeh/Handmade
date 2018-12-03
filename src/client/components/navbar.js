@@ -12,7 +12,7 @@ export class Navbar extends React.Component {
       <div class="navbar-menu">
         <ul class="navbar-end">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink exact to="/">Home</NavLink>
           </li>
           <li>
             <NavLink to="/offers">Buy</NavLink>
