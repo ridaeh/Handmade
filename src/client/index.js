@@ -1,27 +1,18 @@
+'use strict'
 import React from "react"
 import {render} from "react-dom"
-import {Route, BrowserRouter, Switch} from 'react-router-dom'
-import {Navbar} from "./components/navbar"
-import {Home} from './components/home'
-import {Offers} from './components/offers'
-import {Sellers} from './components/sellers'
-import {LogIn} from './components/login'
-import {Register} from './components/register'
-import './styles/style.sass'
+import {Route, BrowserRouter} from 'react-router-dom'
+import {Root} from './components/root'
 
-class Root extends React.Component {
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (<BrowserRouter>
-      <div>
-        <Navbar/>
-        <Route path='/offers' component={Offers}/>
-        <Route exact="exact" path='/' component={Home}/>
-        <Route path='/sellers' component={Sellers}/>
-        <Route path='/login' component={LogIn}/>
-        <Route path='/register' component={Register}/>
-      </div>
+      <Route path="/" component={Root}/>
     </BrowserRouter>);
   }
 }
 
-render(<Root/>, document.getElementById("root"))
+render(<App/>, document.getElementById("root"))

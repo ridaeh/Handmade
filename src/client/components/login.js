@@ -4,15 +4,16 @@ import {Link} from 'react-router-dom'
 import '../styles/login.sass'
 import axios from 'axios'
 export class LogIn extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
     this.state = {
       email: '',
-      password: '',
+      password: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange(event) {
@@ -25,17 +26,14 @@ export class LogIn extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-      axios.post('/api/v1/auth/sign-in', {
-        email: this.state.email,
-        password: this.state.password
-      }).then((response) =>{
-        document.getElementById('message').innerHTML = response.data.token;
-        this.props.history.push("/offers")
 
-      }).catch(function(error) {
-        console.log(error);
-        document.getElementById('message').innerHTML = error.response.data.message
-      });
+    axios.post('/api/v1/auth/sign-in', {
+      email: this.state.email,
+      password: this.state.password
+    }).then(response => this.props.login(response.data.token)).catch(function(error) {
+      console.log(error);
+      document.getElementById('message').innerHTML = error.response.data.message
+    });
 
   }
   componentDidMount() {
@@ -47,9 +45,9 @@ export class LogIn extends React.Component {
         <div class="column">
           <form onSubmit={this.handleSubmit}>
             <label class="label title is-1">Login</label>
-              <div class="field">
-                <label class="label subtitle has-text-danger" id='message'></label>
-              </div>
+            <div class="field">
+              <label class="label subtitle has-text-danger" id='message'></label>
+            </div>
             <div class="field">
               <label class="label subtitle">Email</label>
               <div class="control">
