@@ -1,6 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {ArticleItem} from './article-item'
+import '../styles/offers.sass'
 export class Offers extends React.Component {
   constructor(props) {
     super(props)
@@ -20,7 +21,7 @@ export class Offers extends React.Component {
   }
   render() {
     const items = this.state.data.map((item, index) => <ArticleItem  key={index} id={item._id} name={item.label} link={item.img} price={item.price}/>);
-    return (<section>
+    return (<section class="offers">
       <div class="columns is-multiline">
         {items}
       </div>

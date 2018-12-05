@@ -10,13 +10,13 @@ export class ArticleItem extends React.Component {
       <a href={"/article/" + this.props.id}>
 
         <div class="card-image">
-          <figure class="image is-4by3">
+          <figure class="image is-1by1">
             <img src={this.props.link} alt={this.props.name}/>
           </figure>
         </div>
         <div class="card-content">
           <div class="content">
-            <h3>{this.props.name}</h3>
+            <h3 class="title is-4">{this.props.name}</h3>
             <h4>Price :{this.props.price}$</h4>
           </div>
         </div>

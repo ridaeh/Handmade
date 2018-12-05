@@ -27,7 +27,8 @@ export class Navbar extends React.Component {
    }
     return (<nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <h3 class="title is-3 navbar-item">Handmade Sto<span class="brand-end">re</span>
+        <img src="http://localhost:3000/images/favicon.png" width="46" height="10"/>
+        <h3 class="title is-3 navbar-item">Sto<span class="brand-end">re</span>
         </h3>
       </div>
       <div class="navbar-menu">

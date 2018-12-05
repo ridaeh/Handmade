@@ -14,6 +14,8 @@ apiServer.use(bodyParser.json())
 // create application/x-www-form-urlencoded parser
 apiServer.use(bodyParser.urlencoded({ extended: false }))
 
+apiServer.use('/images/', express.static(__dirname + '/../../public/images/'));
+
 //defining routes
 apiServer.use(authRoutes)
 apiServer.use(productsRoutes)

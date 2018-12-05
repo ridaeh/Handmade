@@ -40,7 +40,7 @@ export class Root extends React.Component {
   }
   render() {
 
-    return (<div>
+    return (<div class="container">
       <Navbar isLoggedIn={this.state.isLoggedIn} action={this.handleLogout}/>
       <Route path='/offers' component={Offers}/>
       <Route exact="exact" path='/' component={Home}/>
