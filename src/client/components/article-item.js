@@ -1,5 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
+import {Link} from 'react-router-dom'
 import '../styles/article-item.sass'
 export class ArticleItem extends React.Component {
   constructor(props) {
@@ -7,7 +8,7 @@ export class ArticleItem extends React.Component {
   }
   render() {
     return (<article class="card column is-one-quarter">
-      <a href={"/article/" + this.props.id}>
+      <Link to={"/product/"+this.props.id} >
 
         <div class="card-image">
           <figure class="image is-1by1">
@@ -20,7 +21,7 @@ export class ArticleItem extends React.Component {
             <h4>Price :{this.props.price}$</h4>
           </div>
         </div>
-      </a>
+      </Link>
     </article>);
   }
 }

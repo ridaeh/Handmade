@@ -8,6 +8,9 @@ import {Offers} from './offers'
 import {Sellers} from './sellers'
 import {LogIn} from './login'
 import {Register} from './register'
+import {Product} from './product'
+import {NotFound} from './not-found'
+import {Profile} from './profile'
 import '../styles/style.sass'
 
 export class Root extends React.Component {
@@ -41,13 +44,18 @@ export class Root extends React.Component {
   render() {
 
     return (<div class="container">
-      <Navbar isLoggedIn={this.state.isLoggedIn} action={this.handleLogout}/>
-      <Route path='/offers' component={Offers}/>
+    <Navbar isLoggedIn={this.state.isLoggedIn} action={this.handleLogout}/>
+    <Switch>
       <Route exact="exact" path='/' component={Home}/>
-      <Route path='/sellers' component={Sellers}/>
+      <Route path='/offers' component={Offers}/>
+      <Route path='/sellers' component={()=> <Sellers isLoggedIn={this.state.isLoggedIn}/>}/>
+      <Route path='/profile' component={Profile} />
       <Route path='/login' component={() => <LogIn login={this.handleLogin}/>}/>
-      <Route path='/register' component={Register} login={this.handleLogin}/>
-    </div>);
+      <Route path='/register' component={()=> <Register login={this.handleLogin}/>}/>
+      <Route exact path="/product/:id" component={Product}/>
+      <Route component={NotFound}/>
+    </Switch>
+  </div>);
 
   }
 }

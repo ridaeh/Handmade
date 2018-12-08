@@ -1,3 +1,4 @@
+@import './style.sass'
 nav
   overflow:  hidden
   padding: 6px
@@ -7,11 +8,8 @@ nav
 
   ul
       list-style-type: none
-
       float: left
       text-align: right
-
-
   li
       display: inline-block
       padding: 10px
@@ -23,9 +21,9 @@ nav
     display: block
     text-align: center
   span
-    color: red
+    color: $primary
   a:hover, a:focus, a:active, a.active
-    color: #ff3300
+    color: $primary
 
   button
     background-color: white

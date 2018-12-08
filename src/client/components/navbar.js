@@ -14,16 +14,20 @@ export class Navbar extends React.Component {
 
   render() {
     const isLoggedIn = this.state.isLoggedIn
-    let login_NavLink
+    let login_NavLink,register_NavLink,profile_NavLink,sell_NavLink
     if (isLoggedIn) {
-    login_NavLink=
+      sell_NavLink= <NavLink to="/sellers">Sell</NavLink>
+      profile_NavLink=<NavLink to="/profile">Profile</NavLink>
+      login_NavLink=<button class="button is-primary is-outlined" onClick={()=>this.props.action() }>Logout</button>
+    } else {
+      sell_NavLink=  <NavLink to="/login">Sell</NavLink>
+       login_NavLink=<NavLink to="/login">
+                       <button class="button is-primary is-outlined">Sign In</button>
+                     </NavLink>
+       register_NavLink=<NavLink to="/register">
+                           <button class="button is-primary is-outlined">Sign Up</button>
+                         </NavLink>
 
-        <button onClick={()=>this.props.action() }>Logout</button>
-
-   } else {
-     login_NavLink=<NavLink to="/login">
-       <button>Sign In</button>
-     </NavLink>
    }
     return (<nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
@@ -39,12 +43,10 @@ export class Navbar extends React.Component {
           <li>
             <NavLink to="/offers">Buy</NavLink>
           </li>
-          <li>
-            <NavLink to="/sellers">Sell</NavLink>
-          </li>
-          <li>
-            {login_NavLink}
-          </li>
+          <li>{sell_NavLink}</li>
+          <li>{profile_NavLink}</li>
+          <li>{login_NavLink}</li>
+          <li>{register_NavLink}</li>
         </ul>
       </div>
     </nav>);
