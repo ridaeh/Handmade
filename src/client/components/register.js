@@ -40,10 +40,7 @@ export class Register extends React.Component {
         email: this.state.email,
         fullName: this.state.fullName,
         password: this.state.password
-      }).then(function(response) {
-        document.getElementById('message').innerHTML = response.data.token
-
-      }).catch(function(error) {
+      }).then(response => this.props.register(response.data.token)).catch(function(error) {
         console.log(error);
         document.getElementById('message').innerHTML = error.response.data.message
       });
