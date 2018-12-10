@@ -1,3 +1,9 @@
+// Set our brand colors
+$purple: #8A4D76
+
+// Update Bulma's global variables
+$primary: $purple
+
 *
   -webkit-box-sizing : border-box
   -moz-box-sizing : border-box
@@ -9,3 +15,8 @@ body
 .no-text-deco
       text-decoration: none
       color: black
+
+@charset "utf-8"
+@import "../../../node_modules/bulma/sass/utilities/_all.sass"
+@import "../../../node_modules/bulma/sass/base/_all.sass"
+@import "../../../node_modules/bulma/bulma.sass"

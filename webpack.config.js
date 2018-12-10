@@ -7,7 +7,8 @@ const outputDirectory = 'dist';
 module.exports = {
   entry: './src/client/index.js',
   output: {
-    path: path.join(__dirname, outputDirectory),
+    path: path.resolve(outputDirectory),
+    publicPath :'/',
     filename: 'bundle.js'
   },
   module: {
@@ -24,7 +25,7 @@ module.exports = {
             use: ["style-loader", "css-loader","sass-loader"]
           },
           {
-            test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+            test: /\.(png|woff|woff2|eot|ttf|svg|ico)$/,
             loader: "url-loader?limit=100000"
           }
     ]
@@ -39,7 +40,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
-      template: "./public/index.html"
+      template: "./public/index.html",
+      favicon : "./public/images/favicon.ico",
     })
   ]
 };

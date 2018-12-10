@@ -1,8 +1,51 @@
+'use strict'
 import React from "react"
 import {render} from "react-dom"
 import {Link} from 'react-router-dom'
 import '../styles/login.sass'
+import axios from 'axios'
+// TODO : check if the email is empty or password or the lenght of it and fullName
 export class Register extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fullName: '',
+      email: '',
+      password: '',
+      re_password: '',
+      message: ''
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    var value = event.target.name
+    const state = this.state
+    state[event.target.name] = event.target.value
+    this.setState(state)
+
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.state.password !== this.state.re_password) {
+      document.getElementById('message').innerHTML = "Password dont match"
+    } else {
+      const state = this.state
+      state['message'] = "!"
+      this.setState(state)
+      axios.post('/api/v1/auth/register', {
+        email: this.state.email,
+        fullName: this.state.fullName,
+        password: this.state.password
+      }).then(response => this.props.register(response.data.token)).catch(function(error) {
+        console.log(error);
+        document.getElementById('message').innerHTML = error.response.data.message
+      });
+    }
+  }
   componentDidMount() {
     document.title = "Register"
   }
@@ -10,24 +53,33 @@ export class Register extends React.Component {
     return (<section class="login">
       <div class="columns">
         <div class="column">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <label class="label title is-1">Register</label>
+            <div class="field">
+              <label class="label subtitle has-text-danger" id='message'></label>
+            </div>
+            <div class="field">
+              <label class="label subtitle">Full name</label>
+              <div class="control">
+                <input class="input" type="text" name="fullName" onChange={this.handleChange}/>
+              </div>
+            </div>
             <div class="field">
               <label class="label subtitle">Email</label>
               <div class="control">
-                <input class="input" type="email" name="email"/>
+                <input class="input" type="email" name="email" onChange={this.handleChange}/>
               </div>
             </div>
             <div class="field">
               <label class="label subtitle">Password</label>
               <div class="control">
-                <input class="input" type="password" name="password"/>
+                <input class="input" type="password" name="password" onChange={this.handleChange}/>
               </div>
             </div>
             <div class="field">
               <label class="label subtitle">Re-Password</label>
               <div class="control">
-                <input class="input" type="password"/>
+                <input class="input" type="password" name="re_password" onChange={this.handleChange}/>
               </div>
             </div>
             <div class="field">

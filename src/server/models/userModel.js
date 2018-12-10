@@ -16,6 +16,22 @@ var userSchema =  mongoose.Schema({
     trim:true,
     required:true
   },
+  avatar:{
+    type:String,
+    trim:true,
+    default:'http://localhost:3000/images/undefined-profile-picture.png'
+  },
+  country:{
+    type:String,
+    trim:true
+  },
+  city:{
+    type:String,
+    trim:true
+  },
+  phoneNumber:{
+    type:String
+  },
   hash_password:{
     type:String,
     required:true

@@ -1,26 +1,27 @@
 import React from 'react'
 import {render} from 'react-dom'
+import {Link} from 'react-router-dom'
 import '../styles/article-item.sass'
 export class ArticleItem extends React.Component {
   constructor(props) {
     super(props)
   }
   render() {
-    return (<article class="card">
-      <a href={"/article/" + this.props.id}>
+    return (<article class="card column is-one-quarter">
+      <Link to={"/product/"+this.props.id} >
 
         <div class="card-image">
-          <figure class="image is-4by3">
+          <figure class="image is-1by1">
             <img src={this.props.link} alt={this.props.name}/>
           </figure>
         </div>
         <div class="card-content">
           <div class="content">
-            <h3>{this.props.name}</h3>
+            <h3 class="title is-4">{this.props.name}</h3>
             <h4>Price :{this.props.price}$</h4>
           </div>
         </div>
-      </a>
+      </Link>
     </article>);
   }
 }
