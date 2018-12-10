@@ -31,15 +31,17 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
-    "axios": "^0.18.0",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
     "mongodb": "^3.1.10",
     "mongoose": "^5.3.13",
+    "multer": "^1.4.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.0",
+    "react-dropzone": "^7.0.1",
     "react-router-dom": "^4.3.1"
   }
 }
