@@ -20,7 +20,7 @@ export class Offers extends React.Component {
 
   }
   render() {
-    const items = this.state.data.map((item, index) => <ArticleItem  key={index} id={item._id} name={item.label} link={item.img} price={item.price}/>);
+    const items = this.state.data.map((item, index) => <ArticleItem  key={index} id={item._id} to="/product" name={item.label} link={item.img} price={item.price}/>);
     return (<section class="offers">
       <div class="columns is-multiline">
         {items}

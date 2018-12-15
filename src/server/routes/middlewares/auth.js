@@ -11,7 +11,7 @@ let authMiddleware = function(request, response, next) {
     request.user = jwt.verify(token, config.signKey, config.signOptions)
     next()
   } else
-    response.json("unauthorize")
+    response.status(401).json("unauthorize")
 }
 
 // Export

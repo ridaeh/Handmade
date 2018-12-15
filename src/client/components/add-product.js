@@ -36,7 +36,7 @@ const image = {
   height: '100%'
 };
 
-export class Sellers extends React.Component {
+export class AddProduct extends React.Component {
 
   constructor(props) {
     super(props);
@@ -48,7 +48,7 @@ export class Sellers extends React.Component {
       },
       img: []
     };
-      console.log(this.props)
+    
   }
   onDrop(img) {
     const state = this.state
@@ -82,7 +82,7 @@ export class Sellers extends React.Component {
       }
     }).then((response) => {
 
-        console.log(response.data)
+        this.props.history.push('/seller')
 
     }).catch(function(error) {
       console.log(error);
@@ -105,13 +105,13 @@ export class Sellers extends React.Component {
             <div class="field">
               <label class="label subtitle">Product's label</label>
               <div class="control">
-                <input type="text" name="label" onChange={this.onChange.bind(this)} placeholder="label"/>
+                <input class="input" type="text" name="label" onChange={this.onChange.bind(this)} placeholder="label"/>
               </div>
             </div>
             <div class="field">
               <label class="label subtitle">Price</label>
               <div class="control">
-                <input type="text" name="price" onChange={this.onChange.bind(this)} placeholder="price"/>
+                <input class="input" type="text" name="price" onChange={this.onChange.bind(this)} placeholder="price"/>
               </div>
             </div>
             <div class="field">
@@ -133,4 +133,4 @@ export class Sellers extends React.Component {
   }
 }
 
-export default Sellers;
+export default AddProduct;

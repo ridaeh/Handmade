@@ -1,5 +1,6 @@
 'user strict'
 var User = require('../models/userModel')
+var Product = require('../models/product')
 var bcrypt = require('bcrypt')
 var jwt = require('jsonwebtoken')
 var config = require('../config/config')
@@ -45,6 +46,25 @@ exports.updateProfile = (req, res, next) => {
     } else {
       return res.status(401).json({
         message: 'User does not updates.'
+      })
+    }
+  })
+}
+
+exports.getProducts = (req, res) => {
+  User.findById({
+    _id: req.params.id
+  }, (err, user) => {
+    if (err) throw err
+    if (user) {
+      user.hash_password = undefined
+      Product.find({
+        user: req.params.id
+      }).exec((error, documents) => {
+        return res.status(200).json({
+          user: user,
+          products: documents
+        })
       })
     }
   })

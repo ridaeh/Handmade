@@ -5,12 +5,14 @@ import {Route, BrowserRouter, Switch} from 'react-router-dom'
 import {Navbar} from "./navbar"
 import {Home} from './home'
 import {Offers} from './offers'
-import {Sellers} from './sellers'
+import {Seller} from './seller'
 import {LogIn} from './login'
 import {Register} from './register'
 import {Product} from './product'
+import {AddProduct} from './add-product'
 import {NotFound} from './not-found'
 import {Profile} from './profile'
+import {EditProduct} from './edit-product'
 import '../styles/style.sass'
 
 export class Root extends React.Component {
@@ -54,9 +56,11 @@ export class Root extends React.Component {
     return (<div class="container">
       <Navbar isLoggedIn={this.state.isLoggedIn} action={this.handleLogout}/>
       <Switch>
-        <Route exact="exact" path='/' component={Home}/>
+        <Route exact path='/' component={Home}/>
         <Route path='/offers' component={Offers}/>
-        <Route path='/sellers' component={() => <Sellers isLoggedIn={this.state.isLoggedIn}/>}/>
+        <Route exact path='/seller' component={() => <Seller/>}/>
+        <Route exact path='/seller/product' component={AddProduct}/>
+        <Route exact path='/seller/product/:id' component={EditProduct}/>
         <Route path='/profile' component={Profile}/>
         <Route path='/login' component={() => <LogIn login={this.handleLogin}/>}/>
         <Route path='/register' component={() => <Register register={this.handleRegister}/>}/>

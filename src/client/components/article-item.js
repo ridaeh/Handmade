@@ -8,7 +8,7 @@ export class ArticleItem extends React.Component {
   }
   render() {
     return (<article class="card column is-one-quarter">
-      <Link to={"/product/"+this.props.id} >
+      <Link to={this.props.to+'/'+this.props.id} >
 
         <div class="card-image">
           <figure class="image is-1by1">

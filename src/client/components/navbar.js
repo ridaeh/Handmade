@@ -16,7 +16,7 @@ export class Navbar extends React.Component {
     const isLoggedIn = this.state.isLoggedIn
     let login_NavLink,register_NavLink,profile_NavLink,sell_NavLink
     if (isLoggedIn) {
-      sell_NavLink= <NavLink to="/sellers">Sell</NavLink>
+      sell_NavLink= <NavLink to="/seller">Sell</NavLink>
       profile_NavLink=<NavLink to="/profile">Profile</NavLink>
       login_NavLink=<button class="button is-primary is-outlined" onClick={()=>this.props.action() }>Logout</button>
     } else {

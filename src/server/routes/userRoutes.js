@@ -1,6 +1,5 @@
 'use strict'
 var express = require('express')
-var Product = require('../models/userModel')
 var userHandlers = require('../controllers/userController')
 let authMiddleware = require('./middlewares/auth')
 var imageMiddleware = require('./middlewares/imageUpload')
@@ -13,7 +12,8 @@ userRoutes.route('/api/v1/user')
 userRoutes.route('/api/v1/user/:id')
   .get(userHandlers.getProfile)
 
-
+userRoutes.route('/api/v1/user/:id/products')
+          .get(userHandlers.getProducts)
 
 
 module.exports = userRoutes
