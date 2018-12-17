@@ -1,12 +1,14 @@
 {
   "name": "handmade",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple full-stack SPA...",
   "main": "index.js",
   "scripts": {
     "server": "nodemon ./src/server/index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --history-api-fallback --hot",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build":  "webpack -p ",
+    "prod" : "npm run build && node ./src/server/index.js"
   },
   "author": "",
   "license": "ISC",

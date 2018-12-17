@@ -56,7 +56,7 @@ export class Root extends React.Component {
     return (<div class="container">
       <Navbar isLoggedIn={this.state.isLoggedIn} action={this.handleLogout}/>
       <Switch>
-        <Route exact path='/' component={Home}/>
+        <Route exact path='/' component={()=><Home isLoggedIn={this.state.isLoggedIn}/>}/>
         <Route path='/offers' component={Offers}/>
         <Route exact path='/seller' component={() => <Seller/>}/>
         <Route exact path='/seller/product' component={AddProduct}/>
