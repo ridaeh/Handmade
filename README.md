@@ -1,13 +1,12 @@
 # :hatching_chick: Handmade
 Welcome to the Handmade !
-
 This is a full stack web application using MongoDB, Express,React, Node.js and Webpack. It is also configured with webpack-dev-server,nodemon and babel.
 
-- [Handmade](#handmade)
+- [Handmade](#:hatching_chick:-handmade)
   - [Introduction](#introduction)
     - [Development mode](#development-mode)
     - [Production mode](#production-mode)
-  - [Quick Start](#quick-start)
+  - [Quick Start](#:hatching_chick:-quick-start)
   - [Documentation](#documentation)
     - [Folder Structure](#folder-structure)
     - [Webpack](#webpack)
@@ -17,7 +16,7 @@ This is a full stack web application using MongoDB, Express,React, Node.js and W
     - [Concurrently](#concurrently)
     - [Babel](#babel)
     - [SASS](#sass)
-    - [Authors](#authors)
+  - [Authors](#:tophat:-authors)
 
 ## Introduction
 This is a simple full stack React application with a Node.js and Express backend. Client side code is written in React and the backend API is written using Express .
