@@ -17,13 +17,12 @@ let productsRoutes = express.Router();
 // research bar
   productsRoutes.get('/api/v1/products', (req, res)=> {
       let s= req.query.search != undefined ? req.query.search : ""
-      let p=req.query.price != undefined ? req.query.price : ""
-      res.type('application/json')
-      Product. find({$and:[{label:{"$regex":s , "$options":"i"},price:{ $lte:p } }]}).exec(function (error, documents) {
+      let p=req.query.price != undefined && req.query.price !== ""  ? req.query.price : "9999"
+      Product. find({$and:[{label:{"$regex":s , "$options":"i"},price:{ $lte:p  } }]}).exec(function (error, documents) {
         if (documents.length > 0) {
           res.json(documents)
         }else
-          res.json([{}])
+          res.json([])
       })
     });
 

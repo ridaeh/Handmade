@@ -38,7 +38,7 @@ export class Product extends React.Component {
   }
   render() {
     return (<div class="content product">
-      <p>{this.state.name}</p>
+      <p class="title is-3">{this.state.name}</p>
       <div class="columns">
         <div class='column'>
           <img src={this.state.img}/></div>
@@ -70,6 +70,7 @@ export class Product extends React.Component {
             </label>
             <label class="subtitle is-5">{this.state.price}</label>
           </div>
+          <a class="button is-primary" > Buy </a>
         </div>
       </div>
 
